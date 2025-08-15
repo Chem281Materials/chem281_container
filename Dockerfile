@@ -2,15 +2,19 @@ FROM taylorabarnes/devenv
 
 ENV DEBIAN_FRONTEND=noninteractive
 
+# This suppresses some harmless errors when running mpich
+ENV HWLOC_HIDE_ERRORS=2
+
 RUN apt-get clean && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
                g++ \
-		       make \
+	       libmpich-dev \
+               make \
                mpich \
-		       python3 \
-		       python3-dev \
-                       python3-pip && \
+               python3 \
+               python3-dev \
+               python3-pip && \
    apt-get clean && \
    rm -rf /var/lib/apt/lists/*
 
