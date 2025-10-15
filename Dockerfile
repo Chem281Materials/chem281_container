@@ -18,6 +18,12 @@ RUN apt-get clean && \
    apt-get clean && \
    rm -rf /var/lib/apt/lists/*
 
+# Install rust
+ENV RUST_VERSION=1.81.0
+RUN curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain ${RUST_VERSION}
+ENV PATH="/root/.cargo/bin:${PATH}"
+
+
 # Symlink python3 to python
 RUN ln -s /usr/bin/python3 /usr/bin/python
 
