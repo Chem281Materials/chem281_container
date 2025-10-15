@@ -9,7 +9,7 @@ RUN apt-get clean && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
                g++ \
-	       libmpich-dev \
+               libmpich-dev \
                make \
                mpich \
                python3 \
